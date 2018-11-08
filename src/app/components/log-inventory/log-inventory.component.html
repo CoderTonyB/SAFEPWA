@@ -1,0 +1,27 @@
+<div fxLayout="column" fxLayoutGap="20px">
+  <div>
+    <div fxFlex fxLayout="row" fxLayoutGap="10px">
+      <button mat-mini-fab>
+        <mat-icon aria-label="Add Log Entry" [routerLink]="'/log/' + this.logKey + '/New'">add</mat-icon>
+      </button>
+      <button mat-mini-fab>
+        <mat-icon aria-label="Back to Log List" [routerLink]="'/loglist'">arrow_back</mat-icon>
+      </button>
+    </div>
+  </div>
+  <table mat-table [dataSource]='logs' fxFlex>
+    <ng-container matColumnDef="Title">
+      <th mat-header-cell *matHeaderCellDef> Title </th>
+      <td mat-cell *matCellDef="let log" (click)="openLog(log.id)"> {{log.Title}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Timestamp">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let log"> {{log.timestamp.seconds * 1000 | date:'MM-dd-yyyy'}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+    <tr mat-row *matRowDef="let logs; columns: columnsToDisplay"></tr>
+  </table>
+  <div fxFlex *ngIf="(logs | async)?.length == 0">
+    <mat-card>Click the plus button to add your first entry into this log.</mat-card>
+  </div>
+</div>

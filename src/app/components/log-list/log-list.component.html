@@ -1,0 +1,7 @@
+<br />
+<div fxLayout="column" fxLayoutGap="20px">
+  <mat-card *ngFor="let log of logtypes | async" class="cardButton" [routerLink]="'/logInventory/' + log.id">
+    <mat-card-title> {{log.LogName}}</mat-card-title>
+    <mat-card-content>{{log.Description}}</mat-card-content>
+  </mat-card>
+</div>
