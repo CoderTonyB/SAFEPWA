@@ -1,3 +1,10 @@
-<p>
-  log works!
-</p>
+logKey {{ this.logKey }} <br />logTypeKey {{ this.logTypeKey }}
+<form #form>
+  <div fxLayout="column" fxFlex>
+    <div fxLayout="column" *ngFor="let question of (question$ | async)">
+      <span class="question" fxFlex>{{ question.Question }}</span>
+      <span class="" fxFlex>{{ question.Description }}</span>
+      <textarea></textarea>
+    </div>
+  </div>
+</form>

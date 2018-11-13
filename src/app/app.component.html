@@ -1,17 +1,39 @@
 <div fxLayout="row">
-    <div fxFlex.gt-md="20" fxHide.lt-lg="true"></div>
-    <div fxFlex>
-        <div fxLayout="row" fxLayoutAlign="center center" *ngIf="true">
-            <div fxLayoutAlign="start center" fxLayoutGap="10px">
-                <img src="assets/logo.png" style="height:60px; width:auto;" />
-                <button mat-raised-button color="primary" routerLink="home">Home</button>
-                <button mat-raised-button color="" routerLink="loglist">Logs</button>
-            </div>
-            <div style="text-align:right;" fxFlex fxLayoutAlign="end center" fxHide.xs>
-                Identity
-            </div>
-        </div>
-        <router-outlet></router-outlet>
+  <div fxFlex.gt-md="20" fxHide.lt-lg="true"></div>
+  <div fxFlex>
+    <div fxLayout="row" fxLayoutAlign="center center" *ngIf="true">
+      <div fxLayoutAlign="start center" fxLayoutGap="10px">
+        <img
+          src="assets/logo.png"
+          [routerLink]="'login'"
+          style="height:60px; width:auto;"
+        />
+        <button mat-raised-button color="primary" routerLink="home">
+          Home
+        </button>
+        <button mat-raised-button color="" routerLink="loglist">Logs</button>
+        <button mat-raised-button color="" (click)="checkLogin()">
+          Check Login
+        </button>
+      </div>
+      <div
+        style="text-align:right;"
+        fxFlex
+        fxLayoutAlign="end center"
+        fxHide.xs
+      >
+        <span
+          *ngIf="(this.userService.isLoggedIn | async)"
+          fxLayout="row"
+          fxLayoutAlign="end center"
+          fxLayoutGap="10px"
+        >
+          <button mat-raised-button color="" (click)="logout()">Log Out</button>
+          <img src="{{ this.photoURL }}" />
+        </span>
+      </div>
     </div>
-    <div fxFlex.gt-md="20" fxHide.lt-lg></div>
+    <router-outlet></router-outlet>
+  </div>
+  <div fxFlex.gt-md="20" fxHide.lt-lg></div>
 </div>

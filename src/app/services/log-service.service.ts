@@ -38,4 +38,21 @@ export class LogService {
         )
       );
   }
+
+  public getQuestionsForLogKey(logTypeKey) {
+    return this.db
+      .collection('LogQuestions', ref =>
+        ref.where('LogTypeKey', '==', logTypeKey).orderBy('Order')
+      )
+      .snapshotChanges()
+      .pipe(
+        map(Question =>
+          Question.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          })
+        )
+      );
+  }
 }
