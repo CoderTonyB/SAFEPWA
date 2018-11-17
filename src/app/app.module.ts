@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './components/home/home.component';
 import { LogListComponent } from './components/log-list/log-list.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { LogService } from './services/log-service.service';
 import { UserService } from './services/user.service';
@@ -18,6 +19,8 @@ import { environment } from '../environments/environment';
 import { LogInventoryComponent } from './components/log-inventory/log-inventory.component';
 import { LogComponent } from './components/log/log.component';
 import { LoginComponent } from './components/login/login.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,9 +39,10 @@ import { LoginComponent } from './components/login/login.component';
     SAFEMaterialModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule
   ],
-  providers: [LogService, UserService],
+  providers: [LogService, UserService, FormBuilder],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

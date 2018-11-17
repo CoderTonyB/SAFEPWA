@@ -26,7 +26,5 @@ export class AppComponent implements OnInit {
     this.userService.logout();
   }
 
-  checkLogin() {
-    console.log(this.isloggedIn);
-  }
+  checkLogin() {}
 }

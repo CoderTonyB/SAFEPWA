@@ -1,10 +1,34 @@
-logKey {{ this.logKey }} <br />logTypeKey {{ this.logTypeKey }}
-<form #form>
-  <div fxLayout="column" fxFlex>
-    <div fxLayout="column" *ngFor="let question of (question$ | async)">
-      <span class="question" fxFlex>{{ question.Question }}</span>
-      <span class="" fxFlex>{{ question.Description }}</span>
-      <textarea></textarea>
-    </div>
+<a mat-raised-button (click)="saveLog()" color="primary">Save</a>
+<form [formGroup]="form">
+  <div fxLayout="column" fxLayoutGap="20px" fxFlex>
+    <mat-card fxLayout="column">
+      <span class="question" fxFlex>Log Title</span>
+      <mat-form-field>
+        <input
+          #title
+          matInput
+          placeholder="Enter a title for your log here"
+          formControlName="Title"
+        />
+      </mat-form-field>
+    </mat-card>
+    <mat-card>
+      <div
+        fxLayout="column"
+        *ngFor="let question of (question$ | async); let i = index"
+      >
+        <span class="question" fxFlex>{{
+          i + 1 + ') ' + question.Question
+        }}</span>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="{{question.Description}}"
+            formControlName="{{question.id}}"
+          />
+        </mat-form-field>
+        <br />
+      </div>
+    </mat-card>
   </div>
 </form>

@@ -5,7 +5,10 @@ import {
   MatListModule,
   MatCardModule,
   MatTableModule,
-  MatIconModule
+  MatIconModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSnackBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -15,7 +18,10 @@ import {
     MatListModule,
     MatCardModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSnackBarModule
   ],
   exports: [
     MatButtonModule,
@@ -23,7 +29,10 @@ import {
     MatListModule,
     MatCardModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSnackBarModule
   ]
 })
 export class SAFEMaterialModule {}

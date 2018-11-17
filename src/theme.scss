@@ -1,0 +1,69 @@
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+//tonic-green generated at http://mcg.mbitson.com/#!?tonicgreen=%233ea849&themename=tonic-greeen with material 2 export
+$safeapp: (
+  50: #e1ebeb,
+  100: #b3cdcd,
+  200: #81acac,
+  300: #4f8b8a,
+  400: #297271,
+  500: #035958,
+  600: #035150,
+  700: #024847,
+  800: #023e3d,
+  900: #012e2d,
+  A100: #67fffa,
+  A200: #fef270,
+  A400: #01fff7,
+  A700: #00e6df,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://www.google.com/design/spec/style/color.html
+$tonic-app-primary: mat-palette($safeapp);
+$tonic-app-accent: mat-palette($safeapp, A200, A100, A400);
+// The warn palette is optional (defaults to red).
+$tonic-app-warn: mat-palette($mat-red);
+// Create the theme object (a Sass map containing all of the palettes).
+$tonic-app-theme: mat-light-theme(
+  $tonic-app-primary,
+  $tonic-app-accent,
+  $tonic-app-warn
+);
+@include angular-material-theme($tonic-app-theme);
+.bggray {
+  background-color: #e1e2e1;
+}
+.bglightgray {
+  background-color: #ffffff;
+}
+.bgdark {
+  background-color: map-get($safeapp, 900);
+}
+.bgprimary {
+  background-color: map-get($safeapp, 500);
+}
+.trHover:hover {
+  background-color: #e1e2e1;
+}
