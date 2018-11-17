@@ -8,12 +8,15 @@
           [routerLink]="'login'"
           style="height:60px; width:auto;"
         />
-        <button mat-raised-button color="primary" routerLink="home">
+        <button mat-raised-button routerLink="home" routerLinkActive="primary">
           Home
         </button>
-        <button mat-raised-button color="" routerLink="loglist">Logs</button>
-        <button mat-raised-button color="" (click)="checkLogin()">
-          Check Login
+        <button
+          mat-raised-button
+          routerLink="loglist"
+          routerLinkActive="primary"
+        >
+          Logs
         </button>
       </div>
       <div

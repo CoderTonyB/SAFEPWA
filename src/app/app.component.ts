@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
-import { Router } from '@angular/router';
+import {
+  Router,
+  Event,
+  NavigationStart,
+  NavigationEnd,
+  NavigationError
+} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +24,7 @@ export class AppComponent implements OnInit {
     if (credentials) {
       this.photoURL = credentials.user.photoURL;
     } else {
-      this.router.navigateByUrl('login');
+      this.router.navigateByUrl('');
     }
   }
 

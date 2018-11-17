@@ -1,4 +1,11 @@
-<a mat-raised-button (click)="saveLog()" color="primary">Save</a>
+<div style="margin-bottom:5px;">
+  <button mat-mini-fab>
+    <mat-icon aria-label="Save Log" (click)="saveLog()">save</mat-icon></button
+  >&nbsp;
+  <button mat-mini-fab>
+    <mat-icon aria-label="Save Log" (click)="goBack()">arrow_back</mat-icon>
+  </button>
+</div>
 <form [formGroup]="form">
   <div fxLayout="column" fxLayoutGap="20px" fxFlex>
     <mat-card fxLayout="column">

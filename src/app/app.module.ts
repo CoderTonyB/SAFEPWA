@@ -21,6 +21,7 @@ import { LogComponent } from './components/log/log.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmAbandonComponent } from './dialogs/confirm-abandon/confirm-abandon.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LogListComponent,
     LogInventoryComponent,
     LogComponent,
-    LoginComponent
+    LoginComponent,
+    ConfirmAbandonComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [LogService, UserService, FormBuilder],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmAbandonComponent]
 })
 export class AppModule {}

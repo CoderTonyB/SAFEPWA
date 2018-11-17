@@ -7,8 +7,7 @@ import { LogComponent } from './components/log/log.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'loglist', component: LogListComponent },
   { path: 'logInventory/:key', component: LogInventoryComponent },

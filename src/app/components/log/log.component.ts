@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { LogService } from 'src/app/services/log-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { flatMap, map } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { ConfirmAbandonComponent } from 'src/app/dialogs/confirm-abandon/confirm-abandon.component';
 
 @Component({
   selector: 'app-log',
@@ -23,7 +25,9 @@ export class LogComponent implements OnInit {
     private logService: LogService,
     private activatedRoute: ActivatedRoute,
     private fb: FormBuilder,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private router: Router,
+    public dialog: MatDialog
   ) {
     this.formObject['Title'] = '';
     this.form = this.fb.group(this.formObject);
@@ -48,6 +52,23 @@ export class LogComponent implements OnInit {
       null,
       { duration: 2000 }
     );
+    this.form.markAsUntouched();
+  }
+
+  goBack() {
+    if (this.form.untouched) {
+      this.router.navigateByUrl(`logInventory/${this.logTypeKey}`);
+    } else {
+      const dialogRef = this.dialog.open(ConfirmAbandonComponent, {
+        disableClose: true
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.router.navigateByUrl(`logInventory/${this.logTypeKey}`);
+        }
+      });
+    }
   }
 
   ngOnInit() {}
