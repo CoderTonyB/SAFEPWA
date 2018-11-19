@@ -1,21 +1,15 @@
 <div fxLayout="column" fxLayoutGap="20px">
   <div>
     <div fxFlex fxLayout="row" fxLayoutGap="10px">
-      <button mat-mini-fab>
-        <mat-icon
-          aria-label="Add Log Entry"
-          [routerLink]="'/log/' + this.logKey + '/New'"
-          >add</mat-icon
-        >
+      <button mat-mini-fab [routerLink]="'/log/' + this.logKey + '/New'">
+        <mat-icon aria-label="Add Log Entry">add</mat-icon>
       </button>
-      <button mat-mini-fab>
-        <mat-icon aria-label="Back to Log List" [routerLink]="'/loglist'"
-          >arrow_back</mat-icon
-        >
+      <button mat-mini-fab [routerLink]="'/loglist'">
+        <mat-icon aria-label="Back to Log List">arrow_back</mat-icon>
       </button>
     </div>
   </div>
-  <table mat-table [dataSource]="logs" fxFlex>
+  <table mat-table [dataSource]="logs" fxFlex="100" style="width:100%;">
     <ng-container matColumnDef="Title">
       <th mat-header-cell *matHeaderCellDef>Title</th>
       <td mat-cell *matCellDef="let log" (click)="openLog(log.id)">

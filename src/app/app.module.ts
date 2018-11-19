@@ -22,6 +22,7 @@ import { LoginComponent } from './components/login/login.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfirmAbandonComponent } from './dialogs/confirm-abandon/confirm-abandon.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ConfirmAbandonComponent } from './dialogs/confirm-abandon/confirm-aband
     LogInventoryComponent,
     LogComponent,
     LoginComponent,
-    ConfirmAbandonComponent
+    ConfirmAbandonComponent,
+    PrivacyComponent
   ],
   imports: [
     BrowserModule,
