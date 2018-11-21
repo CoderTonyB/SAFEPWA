@@ -39,3 +39,11 @@
     </mat-card>
   </div>
 </form>
+<div [style.visibility]="scrollstate" class="BottomFloatingButton">
+  <button mat-mini-fab (click)="saveLog()">
+    <mat-icon aria-label="Save Log">save</mat-icon></button
+  >&nbsp;
+  <button mat-mini-fab (click)="goBack()">
+    <mat-icon aria-label="Save Log">arrow_back</mat-icon>
+  </button>
+</div>

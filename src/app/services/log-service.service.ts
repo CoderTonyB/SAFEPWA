@@ -59,8 +59,8 @@ export class LogService {
       return this.db
         .collection('Logs')
         .add(logData)
-        .then(() => {
-          return 'Saved';
+        .then(ref => {
+          return ref.id;
         });
     } else {
       return this.db
