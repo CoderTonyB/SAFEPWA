@@ -1,4 +1,9 @@
-<button (click)="login()">Login</button>
+<div>Welcome to S.A.F.E. Alternatives Online Logs.</div>
+<img
+  src="assets/facebook-sign-in-button.png"
+  style="width:300px;"
+  (click)="login()"
+/>
 <span *ngIf="this.error?.length > 0"
   >We received the following error: {{ error }}</span
 >

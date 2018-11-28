@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class UserService {
   error = new BehaviorSubject('');
   isLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  userPicUrl: BehaviorSubject<string> = new BehaviorSubject('');
 
   constructor(
     public afAuth: AngularFireAuth,
@@ -38,6 +39,9 @@ export class UserService {
         localStorage.setItem('credentials', JSON.stringify(cred));
         this.error.next('');
         this.isLoggedIn.next(true);
+        this.userPicUrl.next(cred.user.photoURL);
+        localStorage.setItem('userPicUrl', cred.user.photoURL);
+        console.log('user picture set to ', localStorage.getItem('userPicUrl'));
         this.ngZone.run(() => this.router.navigateByUrl('/loglist'));
         console.dir(cred);
       })
@@ -52,6 +56,6 @@ export class UserService {
     this.afAuth.auth.signOut();
     this.isLoggedIn.next(false);
     this.ngZone.run(() => this.router.navigateByUrl('/'));
-    localStorage.removeItem('credentials');
+    localStorage.clear();
   }
 }

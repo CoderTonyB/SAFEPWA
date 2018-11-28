@@ -55,6 +55,13 @@ export class LogComponent implements OnInit {
     const componentPosition = this.el.nativeElement.offsetTop;
     const scrollPosition = window.pageYOffset;
 
+    console.log(
+      'componentPosition:',
+      componentPosition,
+      ' scrollPosition:',
+      scrollPosition
+    );
+
     if (scrollPosition >= componentPosition) {
       this.scrollstate = 'visible';
     } else {

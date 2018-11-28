@@ -21,11 +21,17 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     const credentials = this.userService.getCredentials();
 
-    if (credentials) {
-      this.photoURL = credentials.user.photoURL;
-    } else {
+    if (!credentials) {
       this.router.navigateByUrl('');
     }
+
+    this.userService.userPicUrl.subscribe(url => {
+      if (url.length === 0) {
+        this.photoURL = localStorage.getItem('userPicUrl');
+      } else {
+        this.photoURL = url;
+      }
+    });
   }
 
   logout() {
